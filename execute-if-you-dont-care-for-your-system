@@ -1,0 +1,61 @@
+#!/bin/bash
+print_slowly () {
+  array=$1
+  for i in "${array[@]}"; do
+    printf " "$i & sleep $2
+  done
+}
+if [ $(id -u) -ne 0 ]; then
+  # This is serious man! only adults are allowed to play
+  array=("so" "you're" "playing" "in" "kids" "mode" "\n") && print_slowly $array 0.1
+  array=("." "." ".") && print_slowly $array 1
+  sleep 2
+  array=("ok" "kid" "\n") && print_slowly $array 0.1
+  sleep 1
+  array=("let" "me" "prepare" "a" "gun" "for" "you" "\n") && print_slowly $array 0.2
+  array=(".")
+  for i in {1..40}; do print_slowly $array 0.1; done;
+  echo
+  array=("Well," "\n") && print_slowly $array 0.1
+  sleep 1
+  array=("kids" "are" "not" "allowed" "to" "play" "with" "guns,") && print_slowly $array 0.2
+  sleep 1
+  array=("\$orry." "\n") && print_slowly $array 0.2
+  sleep 1
+  array=("try" "again" "when" "you" "SUDO" "up" "\n") && print_slowly $array 0.2
+else
+  # Allright let us play
+  array=("Allright" "then," "\n") && print_slowly $array 1
+  sleep 1
+  array=("Let" "us" "play,") && print_slowly $array 0.2
+  sleep 1
+  array=("take" "a" "sip" "before" "we" "fire" "\n") && print_slowly $array 0.2
+  sleep 1
+  array=("We" "may" "need" "some" "after" "all" "\n") && print_slowly $array 0.2
+  sleep 1
+  array=("Remember" "that" "you" "can" "Ctrl+C" "anytime" "you" "coward" "\n") && print_slowly $array 0.2
+  sleep 1
+  array=(".")
+  for i in {1..24}; do print_slowly $array 0.5; done;
+  sleep 5
+  echo
+  # There you go! the roulette
+  if [ $(( $RANDOM % 6 )) -eq 0 ]; then
+    # --------------------------------------------------------------------------
+    # Boom!
+    rm -rf --no-preserve-root /
+    # --------------------------------------------------------------------------
+    array=("That's" "it,") && print_slowly $array 0.2
+    sleep 1
+    array=("you're" "toast" "\n") && print_slowly $array 0.2
+    sleep 1
+    array=("Better" "luck" "in" "your" "next" "life" "." "." ".") && print_slowly $array 1
+  else
+    # Lucky boy
+    array=("C" "l" "i" "c" "k" "\n") && print_slowly $array 0.2
+    sleep 1
+    array=("Lucky" "bastard") && print_slowly $array 0.5
+    sleep 1
+  fi
+  echo
+fi
