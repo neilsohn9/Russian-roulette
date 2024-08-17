@@ -12,6 +12,7 @@ Run it
 
 python russian_roulette.py
 
+
 ./russian-roulette.cpp
 
 To pull the trigger press the enter key
