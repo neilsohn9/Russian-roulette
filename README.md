@@ -15,5 +15,6 @@ python russian_roulette.py
 
 ./russian-roulette.cpp
 
+
 To pull the trigger press the enter key
 When the game is empty press y to restart the game or no/enter to exit the game.
